@@ -185,115 +185,116 @@ footer {
 
 /* ================= PHOTOGRAPHY PAGE ================= */
 
-/* Header text */
-#header{
+.photo-header{
+    padding:60px 60px 20px;
+}
+
+.back-home{
+    text-decoration:none;
+    color:#27153D;
+    opacity:0.7;
+    font-size:14px;
+    transition:0.3s ease;
+}
+
+.back-home:hover{
+    opacity:1;
+}
+
+.photo-header h1{
     font-family:'Playfair Display', serif;
-    font-size:5rem;
+    font-size:4rem;
     font-weight:500;
-    letter-spacing:0.08em;
-    margin:40px;
+    margin:20px 0 10px;
     color:#27153D;
 }
 
-#break{
+.photo-header span{
     color:#F6B6B7;
-    padding:0 6px;
 }
 
-#folio{
+.photo-header small{
     font-family:'Inter', sans-serif;
     font-size:0.25em;
     font-weight:300;
-    letter-spacing:0.15em;
+    letter-spacing:0.12em;
     text-transform:uppercase;
     color:#3E2E4A;
 }
 
-/* Gallery wrapper */
-.photo-gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:24px;
-    padding:40px;
+.gallery-description{
+    max-width:500px;
+    line-height:1.7;
+    color:#3E2E4A;
 }
 
-/* Gallery items only */
-.photo-gallery div{
-    position:relative;
-    overflow:hidden;
-    border-radius:18px;
+/* ================= PROJECT SECTIONS ================= */
+
+.project-section{
+    padding:40px 60px 100px;
 }
 
-/* Images */
-.photo-gallery img{
-    width:100%;
-    height:400px;
-    object-fit:cover;
-    display:block;
-    transition:transform 0.6s ease, opacity 0.6s ease;
-    border-radius:18px;
+.project-info{
+    margin-bottom:30px;
 }
 
-/* Hover effect */
-.photo-gallery img:hover{
-    transform:scale(1.04);
-    opacity:0.9;
-}
-
-/* Overlay */
-.photo-gallery div::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(39,21,61,0.25);
-    opacity:0;
-    transition:0.5s ease;
-}
-
-/* Text overlay */
-.all{
-    opacity:0;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -40%);
-
-    font-family:'Playfair Display', serif;
+.project-info h2{
     font-size:2rem;
-    letter-spacing:0.12em;
-    color:white;
-
-    transition:all 0.5s ease;
-    z-index:2;
+    margin-bottom:10px;
 }
 
-/* Hover states */
-.photo-gallery div:hover::after{
-    opacity:1;
+.project-info p{
+    max-width:500px;
+    line-height:1.6;
+    color:#3E2E4A;
 }
 
-.photo-gallery div:hover .all{
-    opacity:1;
-    transform:translate(-50%, -50%);
+/* ================= CLEAN GRID ================= */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
 }
 
-/* Middle variation */
-p.middle{
-    font-size:1.8rem;
-    letter-spacing:0.08em;
-}
+/* ================= IMAGE SIZING ================= */
 
-/* Expand on click */
-.btnControlers{
-    display:none;
-}
+.project-grid img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border-radius:18px;
 
-.btnControlers:checked + label > div{
-    transform:scale(1.03);
     transition:0.4s ease;
 }
 
-/* Mobile */
+/* ================= HOVER ================= */
+
+.project-grid img:hover{
+    transform:scale(1.02);
+    opacity:0.92;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+    .photo-header{
+        padding:30px 20px;
+    }
+
+    .photo-header h1{
+        font-size:2.7rem;
+    }
+
+    .project-section{
+        padding:20px 20px 60px;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+}
 
 /* Video page */
 .videos {
