@@ -215,4 +215,62 @@ iframe {
   .project-grid img {
     height: 300px;
   }
+  .works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+    
+    .works-grid {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.work-item img {
+  height: 220px;
+}
+}
+
+/* make whole tile clickable */
+.work-item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* image styling */
+.work-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* hover zoom */
+.work-item:hover img {
+  transform: scale(1.05);
+}
+
+/* label overlay */
+.work-label {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+/* dark overlay for readability */
+.work-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+  pointer-events: none;
+}
 }
