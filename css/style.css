@@ -22,34 +22,31 @@ p {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 /* ================= EXHIBITION LAYOUT SYSTEM ================= */
 
-/* Each section behaves like a gallery room */
 .project-section {
   padding: 140px 80px;
   max-width: 1300px;
   margin: 0 auto;
 
-  /* scroll reveal base state */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-/* visible state (triggered by JS scroll observer) */
 .project-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* subtle separation between rooms */
 .project-section + .project-section {
   border-top: 1px solid rgba(39, 21, 61, 0.08);
 }
 
-/* ================= PHOTO HEADER (EXHIBITION TITLE WALL) ================= */
+/* ================= PHOTO HEADER ================= */
 
 .photo-header {
   padding: 120px 80px 60px;
@@ -95,7 +92,7 @@ a {
   opacity: 0.9;
 }
 
-/* ================= SECTION TEXT (CURATOR LABEL STYLE) ================= */
+/* ================= SECTION TEXT ================= */
 
 .project-info {
   margin-bottom: 50px;
@@ -114,7 +111,7 @@ a {
   opacity: 0.9;
 }
 
-/* ================= EXHIBITION GRID ================= */
+/* ================= GALLERY GRID ================= */
 
 .project-grid {
   display: grid;
@@ -122,14 +119,11 @@ a {
   gap: 32px;
 }
 
-/* ================= IMAGE (PRINT / GALLERY STYLE) ================= */
-
 .project-grid img {
   width: 100%;
   height: 360px;
   object-fit: cover;
   border-radius: 10px;
-
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
@@ -138,24 +132,53 @@ a {
   opacity: 0.95;
 }
 
-/* ================= FOOTER ================= */
+/* ================= WORKS GRID (HOME PAGE) ================= */
 
-footer {
-  padding: 60px;
-  text-align: center;
-  background: #F6B6B7;
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
-/* ================= GLOBAL HEADER (if used elsewhere) ================= */
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 30px 50px;
+.work-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
-/* ================= SOCIAL (UNCHANGED BUT CLEANED) ================= */
+.work-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.work-item:hover img {
+  transform: scale(1.05);
+}
+
+.work-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+  pointer-events: none;
+}
+
+.work-label {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+/* ================= SOCIAL ================= */
 
 .social-feed {
   display: flex;
@@ -191,7 +214,24 @@ iframe {
   border-radius: 12px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= FOOTER ================= */
+
+footer {
+  padding: 60px;
+  text-align: center;
+  background: #F6B6B7;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 50px;
+}
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
@@ -215,62 +255,13 @@ iframe {
   .project-grid img {
     height: 300px;
   }
+
   .works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
-    
-    .works-grid {
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
-.work-item img {
-  height: 220px;
-}
-}
-
-/* make whole tile clickable */
-.work-item {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-/* image styling */
-.work-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-/* hover zoom */
-.work-item:hover img {
-  transform: scale(1.05);
-}
-
-/* label overlay */
-.work-label {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  z-index: 2;
-}
-
-/* dark overlay for readability */
-.work-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
-  pointer-events: none;
-}
+  .work-item img {
+    height: 220px;
+  }
 }
