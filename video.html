@@ -32,22 +32,17 @@
 <!-- ================= PROJECT 1 ================= -->
 
 <section class="project-section">
+<div class="video-frame" data-video>
+  <iframe
+    src="https://www.youtube.com/embed/a5MqNUckIdA?enablejsapi=1&mute=1&controls=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
 
-  <div class="project-info">
-    <h2>Project One Title</h2>
-    <p>Short description of the first video project.</p>
+  <div class="video-overlay">
+    Project Title
   </div>
-
-  <div class="video-frame">
-    <iframe 
-      src="https://www.youtube.com/embed/VIDEO_ID_1" 
-      allowfullscreen>
-    </iframe>
-
-    <div class="video-overlay">
-      Project One Title
-    </div>
-  </div>
+</div>
 
 </section>
 
@@ -72,6 +67,26 @@
   </div>
 
 </section>
+<script>
+const frames = document.querySelectorAll('.video-frame');
 
+frames.forEach(frame => {
+  const iframe = frame.querySelector('iframe');
+
+  frame.addEventListener('mouseenter', () => {
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"playVideo","args":""}',
+      '*'
+    );
+  });
+
+  frame.addEventListener('mouseleave', () => {
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"pauseVideo","args":""}',
+      '*'
+    );
+  });
+});
+</script>
 </body>
 </html>
