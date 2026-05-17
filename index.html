@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Saoirse Mahon Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div>
     <h1>Saoirse Mahon</h1>
     <p>Media Practitioner</p>
   </div>
+
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -21,42 +27,39 @@
     <a href="#contact">Contact</a>
   </nav>
 </header>
-  <section class="hero">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
   <img src="images/hero.png" alt="Hero Image">
+
   <div class="hero-text">
     <h2>Saoirse Mahon</h2>
     <p>Photography & Visual Storytelling</p>
   </div>
 </section>
 
+<!-- ================= ABOUT ================= -->
 <section id="about" class="fade-section">
   <h2>About Me</h2>
 
   <div class="about-container">
 
-    <!-- YOUR PHOTO HERE -->
     <img src="images/me.jpg" alt="Portrait of Saoirse">
 
     <div class="about-text">
       <p>
         I am a Photographer and Media practitioner specialising in portrait photography and Digital Media. A graduand from Media Production and Digital Arts in TU Dublin, I am proficient in all aspects of media creation including videography, photography, and post production.
       </p>
+
       <p>
-        Ever since I started my journey in media production, I have been interested in capturing each subject's unique personality and expression through portrait photography. For enquiries, please see the contact page.
+        Ever since I started my journey in media production, I have been interested in capturing each subject's unique personality and expression through portrait photography. For enquiries, please see the contact section.
       </p>
     </div>
 
   </div>
 </section>
 
-<section id="works" class="fade-section">
-  <h2>Works</h2>
- <section id="works" class="fade-section">
-  <h2>Works</h2>
-
-  <div class="works-grid">
-
-  
+<!-- ================= WORKS ================= -->
 <section id="works" class="fade-section">
   <h2>Works</h2>
 
@@ -76,51 +79,65 @@
       <img src="images/branding.png" alt="Other Works">
       <div class="work-label">Other Works</div>
     </a>
+
   </div>
 </section>
 
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="fade-section">
   <h2>Contact</h2>
   <p>Your contact info here.</p>
 </section>
 
-
-
-
+<!-- ================= INSTAGRAM ================= -->
 <section class="social-section">
 
   <div class="social-header">
     <h3>Instagram</h3>
-    <a href="https://www.instagram.com/saoirseonfilm/" target="_blank">@saoirseonfilm</a>
+    <a href="https://www.instagram.com/saoirseonfilm/" target="_blank">
+      @saoirseonfilm
+    </a>
   </div>
 
   <div class="social-feed">
+
     <div class="social-item">
-      <img src="insta1.jpg">
+      <img src="insta1.jpg" alt="Instagram post 1">
       <a href="https://www.instagram.com/saoirseonfilm/" target="_blank"></a>
     </div>
+
     <div class="social-item">
-      <img src="insta2.jpg">
+      <img src="insta2.jpg" alt="Instagram post 2">
       <a href="https://www.instagram.com/saoirseonfilm/" target="_blank"></a>
     </div>
+
     <div class="social-item">
-      <img src="insta3.jpg">
+      <img src="insta3.jpg" alt="Instagram post 3">
       <a href="https://www.instagram.com/saoirseonfilm/" target="_blank"></a>
     </div>
+
     <div class="social-item">
-      <img src="insta4.jpg">
+      <img src="insta4.jpg" alt="Instagram post 4">
       <a href="https://www.instagram.com/saoirseonfilm/" target="_blank"></a>
     </div>
+
   </div>
 
 </section>
 
+<!-- ================= SCROLL ANIMATION ================= -->
 <script>
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})
-},{threshold:0.2});
-sections.forEach(s=>observer.observe(s));
+const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
