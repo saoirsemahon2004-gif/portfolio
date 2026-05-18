@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,17 +33,28 @@
 <!-- ================= PROJECT 1 ================= -->
 
 <section class="project-section">
-<div class="video-frame" data-video>
-  <iframe
-    src="https://www.youtube.com/embed/a5MqNUckIdA?enablejsapi=1&mute=1&controls=1"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
 
-  <div class="video-overlay">
-    Project Title
+  <div class="project-info">
+    <h2>Project One Title</h2>
+    <p>
+      Short description of the first video project.
+    </p>
   </div>
-</div>
+
+  <div class="video-frame" data-video>
+
+    <iframe
+      src="https://www.youtube.com/embed/a5MqNUckIdA?enablejsapi=1&mute=1&controls=1&rel=0"
+      title="Project One"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+    <div class="video-overlay">
+      Project One
+    </div>
+
+  </div>
 
 </section>
 
@@ -52,25 +64,35 @@
 
   <div class="project-info">
     <h2>Project Two Title</h2>
-    <p>Short description of the second video project.</p>
+    <p>
+      Short description of the second video project.
+    </p>
   </div>
 
-  <div class="video-frame">
-    <iframe 
-      src="https://www.youtube.com/embed/VIDEO_ID_2" 
+  <div class="video-frame" data-video>
+
+    <iframe
+      src="https://www.youtube.com/embed/YOUR_SECOND_VIDEO_ID?enablejsapi=1&mute=1&controls=1&rel=0"
+      title="Project Two"
+      allow="autoplay; encrypted-media"
       allowfullscreen>
     </iframe>
 
     <div class="video-overlay">
-      Project Two Title
+      Project Two
     </div>
+
   </div>
 
 </section>
+
+<!-- ================= HOVER AUTOPLAY ================= -->
+
 <script>
 const frames = document.querySelectorAll('.video-frame');
 
 frames.forEach(frame => {
+
   const iframe = frame.querySelector('iframe');
 
   frame.addEventListener('mouseenter', () => {
@@ -86,7 +108,9 @@ frames.forEach(frame => {
       '*'
     );
   });
+
 });
 </script>
+
 </body>
 </html>
