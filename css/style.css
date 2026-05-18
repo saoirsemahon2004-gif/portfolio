@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
@@ -18,6 +19,7 @@ body {
 }
 
 /* Force vertical stacking */
+
 section {
   display: block;
   width: 100%;
@@ -25,7 +27,8 @@ section {
 
 /* ================= TYPOGRAPHY ================= */
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 500;
   margin: 0;
@@ -42,7 +45,54 @@ a {
   text-decoration: none;
 }
 
-/* ================= EXHIBITION LAYOUT SYSTEM ================= */
+/* ================= HEADER ================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 50px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ================= HERO TEXT ================= */
+
+.hero-text {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  color: white;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ================= EXHIBITION LAYOUT ================= */
 
 .project-section {
   padding: 140px 80px;
@@ -106,55 +156,6 @@ a {
   line-height: 1.7;
   color: #3E2E4A;
   opacity: 0.9;
-}
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* ================= HERO TEXT OVERLAY ================= */
-
-.hero-text {
-  position: absolute;
-  bottom: 60px;
-  left: 60px;
-  color: white;
-  z-index: 2;
-  max-width: 600px;
-}
-
-.hero-text h2 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero-text p {
-  font-size: 1rem;
-  opacity: 0.85;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero-text {
-    left: 20px;
-    bottom: 20px;
-  }
-
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-}
 }
 
 /* ================= SECTION TEXT ================= */
@@ -265,12 +266,14 @@ a {
 }
 
 /* ================= VIDEO ================= */
+
 .video-frame {
   position: relative;
   width: 100%;
   height: 70vh;
-  overflow: hidden;
+  margin-top: 20px;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 .video-frame iframe {
@@ -279,6 +282,32 @@ a {
   border: 0;
   display: block;
 }
+
+/* ================= VIDEO OVERLAY ================= */
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.45);
+
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.video-frame:hover .video-overlay {
+  opacity: 1;
+}
+
 /* ================= FOOTER ================= */
 
 footer {
@@ -287,18 +316,24 @@ footer {
   background: #F6B6B7;
 }
 
-/* ================= HEADER ================= */
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 30px 50px;
-}
-
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .hero-text {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
 
   .photo-header {
     padding: 80px 20px 40px;
@@ -329,46 +364,12 @@ header {
   .work-item img {
     height: 220px;
   }
-  /* ================= CINEMATIC VIDEO FRAME ================= */
 
-.video-frame {
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-}
+  .video-frame {
+    height: 45vh;
+  }
 
-/* full width cinematic embed */
-.video-frame iframe {
-  width: 100%;
-  height: 70vh;
-  display: block;
-  border: 0;
-  object-fit: cover;
-}
-
-/* dark overlay (hidden until hover) */
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(0, 0, 0, 0.45);
-  color: white;
-
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  letter-spacing: 0.05em;
-
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-/* hover reveal */
-.video-frame:hover .video-overlay {
-  opacity: 1;
-}
+  .video-overlay {
+    font-size: 1.4rem;
+  }
 }
