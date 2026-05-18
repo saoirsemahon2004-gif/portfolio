@@ -268,12 +268,14 @@ header {
 /* ================= VIDEO ================= */
 
 .video-frame {
-  position: relative;
   width: 100%;
+  max-width: 1100px;
+  margin: 40px auto 0;
   aspect-ratio: 16 / 9;
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
-  margin-top: 20px;
+  background: black;
 }
 
 .video-frame iframe {
@@ -282,8 +284,6 @@ header {
   border: 0;
   display: block;
 }
-}
-
 /* ================= VIDEO OVERLAY ================= */
 
 .video-overlay {
