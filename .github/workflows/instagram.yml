@@ -1,0 +1,39 @@
+name: Update Instagram Feed
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+
+  workflow_dispatch:
+
+jobs:
+
+  update-instagram:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+
+    - name: Update Instagram JSON
+      run: |
+
+        curl \
+        "https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink&access_token=${{ secrets.INSTAGRAM_TOKEN }}" \
+        -o instagram-data.json
+
+
+    - name: Commit changes
+      run: |
+
+        git config --global user.name "Instagram Bot"
+        git config --global user.email "actions@github.com"
+
+        git add instagram-data.json
+
+        git commit -m "Update Instagram feed" || exit 0
+
+        git push
